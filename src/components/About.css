@@ -1,49 +1,29 @@
+/* About Us styling */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap");
+
 .about-section {
-  padding: 6rem 1rem;
   background: #000;
+  padding: 8rem 1rem 4rem;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.neon-title {
-  font-family: 'Orbitron', sans-serif;
+.about-title {
+  font-family: "Orbitron", sans-serif;
   font-size: 2.5rem;
-  color: #c4b3ff;
-  text-shadow: 0 0 10px #c4b3ff, 0 0 30px rgba(196,179,255,0.7);
-  margin-bottom: 1rem;
+  color: #b28aff;
+  text-shadow: 0 0 12px rgba(178,138,255,0.9);
+  margin-bottom: 2rem;
 }
 
 .about-text {
-  max-width: 600px;
-  margin: 0 auto 3rem;
-  color: #bbb;
-  line-height: 1.6;
+  font-family: "Segoe UI", sans-serif;
   font-size: 1.1rem;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.feature-card {
-  background: rgba(0,0,0,0.6);
-  border: 2px solid #6b00ff;
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
-  color: white;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: default;
-}
-.feature-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 12px rgba(107,0,255,0.8), 0 0 24px rgba(107,0,255,0.6);
-}
-
-.icon-wrapper {
-  font-size: 2.5rem;
-  color: #c4b3ff;
-  margin-bottom: 1rem;
+  color: #ddd;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }

@@ -1,47 +1,47 @@
-import React from 'react';
+import React from "react";
+import {
+  FaBolt,
+  FaShieldAlt,
+  FaFire,
+  FaUsers
+} from "react-icons/fa";
+import "./Services.css";
 
 export default function Services() {
   const services = [
     {
-      title: 'Community Moderation',
-      desc: 'Safe, engaged spaces across Discord and Telegram.',
+      icon: <FaBolt />,
+      title: "Community Raiding",
+      desc: "Data-driven hit-waves to spark organic virality"
     },
     {
-      title: 'Raid Management',
-      desc: 'Organized hype waves to boost visibility.',
+      icon: <FaShieldAlt />,
+      title: "24/7 Modding",
+      desc: "Keep your channels wild yet watchful"
     },
     {
-      title: 'Social Media',
-      desc: 'Cross-platform branding and daily engagement.',
+      icon: <FaFire />,
+      title: "Memetic Engineering",
+      desc: "Dank meme campaigns to break the chain"
     },
     {
-      title: 'Partnership Outreach',
-      desc: 'Connecting you with the right allies in Web3.',
-    },
+      icon: <FaUsers />,
+      title: "Growth Alchemy",
+      desc: "On-chain outreach & rogue partnerships"
+    }
   ];
 
   return (
-    <section id="services" className="d-flex flex-column justify-content-center align-items-center text-center" style={{ minHeight: '100vh', padding: '3rem 1rem' }}>
-      <h2 style={{ color: '#00f9ff', fontSize: '2.5rem', marginBottom: '2rem' }}>Our Services</h2>
-      <div className="container">
-        <div className="row g-4">
-          {services.map(({ title, desc }, i) => (
-            <div className="col-md-6 col-lg-3" key={i}>
-              <div
-                className="p-4 rounded text-light h-100"
-                style={{
-                  background: '#1e1e2f',
-                  boxShadow: 'inset 6px 6px 12px #141421, inset -6px -6px 12px #2a2a40',
-                  borderRadius: '1rem',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                }}
-              >
-                <h5 style={{ color: '#00f9ff' }}>{title}</h5>
-                <p className="small mb-0">{desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+    <section id="services" className="services-section">
+      <h2 className="services-title">Our Core Services</h2>
+      <div className="services-grid">
+        {services.map((s, i) => (
+          <div className="service-card" key={i}>
+            <div className="service-icon">{s.icon}</div>
+            <h3 className="service-name">{s.title}</h3>
+            <p className="service-desc">{s.desc}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -1,0 +1,60 @@
+/* Services section styling */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap");
+
+.services-section {
+  background: #000;
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+.services-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5rem;
+  color: #b28aff;
+  text-shadow: 0 0 10px rgba(178,138,255,0.8);
+  margin-bottom: 3rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: #1e1e2f;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  box-shadow:
+    inset 6px 6px 12px #141421,
+    inset -6px -6px 12px #2a2a40;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    6px 6px 12px rgba(0,0,0,0.6),
+    -6px -6px 12px rgba(255,255,255,0.1);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: #b28aff;
+  margin-bottom: 1rem;
+}
+
+.service-name {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.service-desc {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.4;
+}

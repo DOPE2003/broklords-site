@@ -1,27 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
-
-/* ─ Navbar layout ───────────────────────────────── */
-
+/* overall navbar */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #0a0a12;
   padding: 0.5rem 2rem;
+  background: #0a0a12;
   display: flex;
   align-items: center;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
+/* your logo */
 .nav-logo {
   font-family: 'Orbitron', sans-serif;
-  color: #c4b3ff;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+  color: #b19fff;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
 }
 
+/* center wrapper holds dropdowns + links */
 .nav-center {
   flex: 1;
   display: flex;
@@ -30,99 +29,84 @@
   gap: 2rem;
 }
 
+/* main nav links */
 .nav-links {
   display: flex;
-  gap: 1.5rem;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .nav-links a {
-  color: #c4b3ff;
+  color: white;
   text-decoration: none;
   font-family: 'Orbitron', sans-serif;
-  font-weight: 500;
-  transition: color 0.2s;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
+
 .nav-links a:hover {
-  color: #fff;
+  color: #b19fff;
+  text-decoration: underline;
 }
 
-/* ─ Dropdown wrapper ───────────────────────────────── */
+/* shared button style */
+.nav-btn {
+  position: relative;
+  background: rgba(128, 0, 128, 0.25);
+  border: 1px solid #b19fff;
+  color: white;
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
 
+.nav-btn:hover {
+  background: rgba(128, 0, 128, 0.4);
+  transform: translateY(-2px);
+}
+
+/* contact vs services tweaks (if you want different widths) */
+.contact-btn {
+  min-width: 8rem;
+}
+.services-btn {
+  min-width: 6rem;
+}
+
+/* dropdown wrapper so we can position the content */
 .dropdown-wrapper {
   position: relative;
 }
 
-/* ─ Neon-Purple Button Base ──────────────────────────── */
-
-.btn-neon-purple {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #c4b3ff;
-  background: rgba(0, 0, 0, 0.6);
-  border: 2px solid #6b00ff;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  overflow: hidden;
-  transition: color 0.3s, background 0.3s, box-shadow 0.3s;
-}
-.btn-neon-purple::before {
-  content: '';
-  position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
-  background: rgba(107, 0, 255, 0.6);
-  filter: blur(8px);
-  opacity: 0;
-  border-radius: 0.5rem;
-  transition: opacity 0.3s;
-  z-index: -1;
-}
-.btn-neon-purple:hover {
-  color: #fff;
-  background: rgba(107, 0, 255, 0.2);
-  box-shadow:
-    0 0 8px rgba(107,0,255,0.8),
-    0 0 16px rgba(107,0,255,0.6);
-}
-.btn-neon-purple:hover::before {
-  opacity: 1;
-}
-
-/* ─ Dropdown Content ───────────────────────────────── */
-
+/* dropdown panel */
 .dropdown-content {
   position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  background: transparent;
+  top: 110%;
+  left: 0;
+  background: rgba(128, 0, 128, 0.2);
+  border: 1px solid #b19fff;
+  backdrop-filter: blur(8px);
+  border-radius: 0.5rem;
   padding: 0.5rem 0;
+  min-width: 10rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
   z-index: 200;
 }
 
-/* Make links full-width in dropdown */
-.dropdown-content a {
-  width: 200px;
-  text-align: center;
+/* dropdown links/buttons */
+.dropdown-item {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-family: 'Orbitron', sans-serif;
+  transition: background 0.2s;
 }
 
-/* ─ Responsive ─────────────────────────────────────── */
-
-@media (max-width: 768px) {
-  .nav-center {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.dropdown-item:hover {
+  background: rgba(128, 0, 128, 0.4);
 }
