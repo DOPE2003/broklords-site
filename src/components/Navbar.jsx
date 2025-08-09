@@ -61,15 +61,17 @@ export default function Navbar() {
             {openServices && (
               <div className="dropdown-content services-content">
                 <a href="#community-moderation" className="dropdown-item">
-                  Community Moderation
+                  Community Raiding
                 </a>
                 <a href="#raid-management" className="dropdown-item">
-                  Raid Management
+                  24/7 Modding
                 </a>
                 <a href="#social-media" className="dropdown-item">
-                  Social Media Management
+                  Memetic Engineering
                 </a>
-                {/* etc... */}
+                <a href="#growth-alchemy" className="dropdown-item">
+                  Growth Alchemy
+                </a>
               </div>
             )}
           </div>
