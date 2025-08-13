@@ -1,35 +1,104 @@
-.hero {
+/* ===== HERO LAYOUT – LOCK CENTER ===== */
+
+.hero{
   position: relative;
-  width: 100%;
-  height: 100vh;
+  min-height: calc(100svh - var(--nav-h));
+  display: grid;
+  place-items: center;           /* center content box */
   overflow: hidden;
-}
-.hero-video {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: auto; height: 100%;
-  min-width: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: 1;
-}
-.hero-content {
-  position: absolute;
-  bottom: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 2;
-  color: #fff;
-}
-.hero-content h2 {
-  font-size: 1.5rem;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.5rem;
-  opacity: 0.9;
   font-family: 'Orbitron', sans-serif;
 }
-.hero-content p {
-  margin-bottom: 1.5rem;
-  opacity: 0.8;
+
+
+.hero-media{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* full-bleed video */
+  object-position: center 40%;
+  z-index: 0;
+  filter: brightness(.55) contrast(1.05);
+}
+
+/* Content box that is always centered */
+.hero-shell{
+  position: relative;            /* sits above the video */
+  z-index: 2;
+  margin-inline: auto;           /* CENTER */
+  width: min(92vw, 900px);
+  display: grid;
+  gap: 16px;
+  justify-items: center;         /* CENTER items */
+  text-align: center;            /* CENTER text */
+  padding: 0 1rem;
+}
+
+/* Typography/buttons – keep your existing design if you like */
+.hero-title{
+  font-size: clamp(22px, 4vw + 1rem, 42px);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.hero-sub{
+  opacity: .9;
+  max-width: 60ch;
+}
+
+/* Button */
+.btn-primary{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: #5a2fff;
+  color: #fff;
+  border: 1px solid rgba(160,130,255,.35);
+  box-shadow: 0 8px 22px rgba(90,47,255,.35);
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 10px 26px rgba(90,47,255,.45); }
+
+/* MOBILE: swap video for lightweight background if you prefer */
+@media (max-width: 768px){
+  .hero-media{ display:none; }   /* hide video on phones */
+  .hero{
+    background:
+      radial-gradient(60% 40% at 25% 35%, rgba(110,0,255,.18) 0%, transparent 60%),
+      radial-gradient(60% 40% at 75% 70%, rgba(180,0,255,.12) 0%, transparent 60%),
+      #000;
+  }
+}
+
+/* keep the hero centered on both axes */
+/* Keep the rest of your file as-is */
+
+/* Make sure the section is the positioning context */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ⬇️ Put the text block lower on the screen */
+.hero-shell {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);   /* center horizontally */
+  bottom: 15vh;                  /* <— adjust this to sit in the circled area */
+  text-align: center;
+  z-index: 2;
+}
+
+/* Tweak for large laptops */
+@media (max-width: 1200px) {
+  .hero-shell { bottom: 12vh; }
+}
+
+/* Tweak for tablets/phones */
+@media (max-width: 768px) {
+  .hero-shell { bottom: 10vh; }
 }
