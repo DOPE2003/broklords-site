@@ -1,46 +1,89 @@
 import React from "react";
 import {
-  FaBolt,
   FaShieldAlt,
+  FaBolt,
+  FaChartLine,
+  FaTwitter,
+  FaUsers,
   FaFire,
-  FaUsers
-} from "react-icons/fa";
+  FaPhone,
+  FaLaptop
+} 
+from "react-icons/fa";
 import "./Services.css";
 
 export default function Services() {
-  const services = [
+  const services = [ 
     {
-      icon: <FaBolt />,
-      title: "Community Raiding",
-      desc: "Data-driven hit-waves to spark organic virality"
-    },
-    {
+      slug: "24/7-modding",
       icon: <FaShieldAlt />,
       title: "24/7 Modding",
       desc: "Keep your channels wild yet watchful"
     },
     {
-      icon: <FaFire />,
-      title: "Memetic Engineering",
-      desc: "Dank meme campaigns to break the chain"
+      slug: "community-raiding",
+      icon: <FaBolt />,
+      title: "Community Raiding",
+      desc: "Coordinated hype pushes"
     },
     {
-      icon: <FaUsers />,
+      slug: "growth-alchemy",
+      icon: <FaChartLine />,
       title: "Growth Alchemy",
-      desc: "On-chain outreach & rogue partnerships"
+      desc: "Convert visitors to holders"
+    },
+    {
+      slug: "social-media-management",
+      icon: <FaTwitter/>,
+      title:"Social Media Management",
+      desc:"Dashboards to track your growth and engagement",
+    },
+    {
+      slug: "content-creation",
+      icon: <FaUsers />,
+      title: "Content Creation",
+      desc: "Videos, graphics, and more to boost your brand"
+    },
+    {
+      slug: "meme-architectury",
+      icon: <FaFire />,
+      title: "Meme Architectury",
+      desc: "Memes that turn viewers into holders"
+    },
+    
+    {
+      slug: "crypto-advisory",
+      icon: <FaPhone />,
+      title: "Crypto Advisory",
+      desc: "Expert guidance for your crypto journey"
+    },
+    {
+      slug: "custom-services",
+      icon: <FaLaptop />,
+      title: "Custom Services",
+      desc: "Tailored solutions for your unique needs"
     }
+    
   ];
 
   return (
     <section id="services" className="services-section">
       <h2 className="services-title">Our Core Services</h2>
-      <div className="services-grid">
-        {services.map((s, i) => (
-          <div className="service-card" key={i}>
-            <div className="service-icon">{s.icon}</div>
+
+      <div className="services-grid" role="list">
+        {services.map((s) => (
+          <article
+            id={`service-${s.slug}`}
+            className="service-card"
+            role="listitem"
+            key={s.slug}
+          >
+            <div className="service-icon" aria-hidden="true">
+              {s.icon}
+            </div>
             <h3 className="service-name">{s.title}</h3>
             <p className="service-desc">{s.desc}</p>
-          </div>
+          </article>
         ))}
       </div>
     </section>

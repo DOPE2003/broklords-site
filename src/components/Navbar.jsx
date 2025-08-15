@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import './Navbar.css'
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [openContact, setOpenContact] = useState(false)
   const [openServices, setOpenServices] = useState(false)
-
+  
   return (
     <header className="navbar">
       <div className="nav-logo">BROKLORDS</div>
@@ -28,7 +29,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="dropdown-item"
-              >
+              >                
                 Telegram
               </a>
               <a
@@ -60,17 +61,29 @@ export default function Navbar() {
             </button>
             {openServices && (
               <div className="dropdown-content services-content">
-                <a href="#community-moderation" className="dropdown-item">
-                  Community Raiding
-                </a>
-                <a href="#raid-management" className="dropdown-item">
+                 <a href="#24/7-modding" className="dropdown-item">
                   24/7 Modding
                 </a>
-                <a href="#social-media" className="dropdown-item">
-                  Memetic Engineering
+                <a href="#community-raiding" className="dropdown-item">
+                  Community Raiding
                 </a>
                 <a href="#growth-alchemy" className="dropdown-item">
                   Growth Alchemy
+                </a>               
+                <a href="#social-media-management" className="dropdown-item">
+                  Social Media Management
+                </a>
+                 <a href="#meme-architectury" className="dropdown-item">
+                  Meme Architectury
+                </a>
+                <a href="#content-creation" className="dropdown-item">
+                  Content Creation
+                </a>
+                <a href="#crypto-advisory" className="dropdown-item">
+                  Crypto Advisory
+                </a>
+                <a href="#custom-services" className="dropdown-item">
+                  Custom Services
                 </a>
               </div>
             )}
