@@ -44,28 +44,3 @@
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
 }
-
-/* --- Mobile: replace background video with solid black --- */
-@media (max-width: 820px), (hover: none) and (pointer: coarse) {
-  /* kill any hero video */
-  .hero video,
-  .hero__video,
-  .hero-video {
-    display: none !important;
-  }
-
-  /* make the hero area black */
-  .hero,
-  .hero__bg,
-  .hero-bg {
-    background: #000 !important;
-  }
-
-  /* if you have any glow/overlay on top of the video, hide it too */
-  .hero::before,
-  .hero::after,
-  .hero__overlay {
-    opacity: 0 !important;
-    display: none !important;
-  }
-}
