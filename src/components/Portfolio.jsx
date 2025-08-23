@@ -1,37 +1,63 @@
-import React, { useState } from "react";
-import CountUp from "react-countup";
+// src/components/Portfolio.jsx
+import React, { useMemo, useState } from "react";
 import "./Portfolio.css";
+import PortfolioChart from "./PortfolioChart";
+
+// Adjust these if your counts are computed elsewhere
+const COUNTS = {
+  all: 4500 + 110 + 30, // sample: total of all categories
+  raids: 4500,
+  modding: 110,
+  events: 30,
+};
+
+const TABS = [
+  { key: "all", label: "All" },
+  { key: "raids", label: "Raids" },
+  { key: "modding", label: "Modding" },
+  { key: "events", label: "Events" },
+];
 
 export default function Portfolio() {
-  const categories = [
-    { name: "All",    count: 5000 },
-    { name: "Raids",  count: 4500 },
-    { name: "Modding",count: 110  },
-    { name: "Events", count: 30   },
-  ];
-
-  const [active, setActive] = useState("All");
-  const { count } = categories.find(c => c.name === active);
+  const [active, setActive] = useState("all");
+  const count = useMemo(() => COUNTS[active] ?? 0, [active]);
 
   return (
-    <div className="portfolio-container">
-      <h2 className="portfolio-title">Our Portfolio</h2>
+    <section id="portfolio" className="section portfolio-section">
+      <div className="container">
+        <h2 className="section-title">Our Portfolio</h2>
 
-      <div className="portfolio-buttons">
-        {categories.map(cat => (
-          <button
-            key={cat.name}
-            className={`portfolio-btn${active === cat.name ? " active" : ""}`}
-            onClick={() => setActive(cat.name)}
-          >
-            {cat.name}
-          </button>
-        ))}
-      </div>
+        {/* Tabs */}
+        <div className="pf-tabs" role="tablist" aria-label="Portfolio categories">
+          {TABS.map(t => (
+            <button
+              key={t.key}
+              role="tab"
+              aria-selected={active === t.key}
+              className={`pf-tab ${active === t.key ? "active" : ""}`}
+              onClick={() => setActive(t.key)}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
 
-      <div className="portfolio-count">
-        <CountUp prefix="+" end={count} duration={2} />
+        {/* Counter strip */}
+        <div className="pf-metrics-row">
+          <div className="pf-metric-card">
+            <div className="pf-metric-number">+{count}</div>
+            <div className="pf-metric-label">
+              {TABS.find(x => x.key === active)?.label} total
+            </div>
+          </div>
+        </div>
+
+        {/* Chart */}
+        <PortfolioChart category={active} />
+
+        {/* (Optional) Your portfolio cards can remain below */}
+        {/* <div className="your-grid-here"> ... </div> */}
       </div>
-    </div>
+    </section>
   );
 }

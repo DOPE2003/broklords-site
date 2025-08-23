@@ -58,3 +58,13 @@
   color: #ccc;
   line-height: 1.4;
 }
+
+/* makes anchor jumps land below the fixed navbar */
+.service-card {
+  scroll-margin-top: 110px;  /* adjust if your navbar height changes */
+}
+
+/* optional tweak for smaller phones */
+@media (max-width: 480px) {
+  .service-card { scroll-margin-top: 140px; }
+}

@@ -2,21 +2,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
-:root{
-  --nav-h: 72px;           /* desktop navbar height */
-}
-
-/* shorter navbar on phones */
-@media (max-width: 768px){
-  :root{ --nav-h: 58px; }
-}
-
-/* any element you scroll to won’t hide under the navbar */
-section, [id]{
-  scroll-margin-top: calc(var(--nav-h) + 16px);
-}
-
-
 /* page bg + text */
 body {
   background: #0a0a12;
@@ -85,18 +70,20 @@ body {
     inset 0 0 4px rgba(255,255,255,0.3);
 }
 
-/* good general section pattern */
-.section {
-  min-height: auto;          /* was 100vh in some places – remove that */
-  padding: 64px 16px;
+:root{
+  --page-bg: #000000; /* the one you like everywhere */
 }
 
-/* Hotfix: force hero center at all widths */
-#home .hero-shell{
-  margin: 0 auto !important;
-  text-align: center !important;
-  justify-items: center !important;
-  left: auto !important;
-  right: auto !important;
-  transform: none !important;
+body{
+  background: var(--page-bg);
+}
+
+/* Force every section to use the same background */
+.section,
+.about-section,
+.portfolio-section,
+.services-section,
+.team-section,
+.contact-section{
+  background: var(--page-bg) !important;
 }

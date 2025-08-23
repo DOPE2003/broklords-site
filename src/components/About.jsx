@@ -6,7 +6,7 @@ export default function About() {
     <section id="about" className="about-section">
       <div className="about-container">
         <h2 className="about-title">
-          We’re not just building hype—we’re building cults
+          We’re not just building hype we’re building cults
         </h2>
         <p className="about-text">
           From chaotic tweet raids that light up the feeds with pure degen energy to memetic strikes so dank they break the chain, we’re not just building hype we’re building cults. Our 24/7 mod squad keeps your channels wild yet watchful, and our partnership alchemy hooks you up with on chain whales, rogue DAOs, and underground OGs to send your project to the moon.

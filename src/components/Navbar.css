@@ -1,112 +1,108 @@
-/* overall navbar */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+/* Base layout */
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  width: 100%;
-  padding: 0.5rem 2rem;
-  background: #0a0a12;
+  z-index: 1000;
   display: flex;
   align-items: center;
-  z-index: 100;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 16px;
+  background: #0b0b13;        /* same dark bar */
+  border-bottom: 1px solid rgba(178,138,255,0.08);
 }
 
-/* your logo */
-.nav-logo {
-  font-family: 'Orbitron', sans-serif;
-  color: #b19fff;
-  font-size: 1.4rem;
-  letter-spacing: 2px;
+.brand {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.6rem;
+  color: #b8b7ff;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
 }
 
-/* center wrapper holds dropdowns + links */
-.nav-center {
-  flex: 1;
+.nav-group {
   display: flex;
+  gap: 28px;
   justify-content: center;
-  align-items: center;
-  gap: 2rem;
+  flex: 1 1 auto;             /* lets links use middle space */
 }
 
-/* main nav links */
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  color: white;
+.nav-group a {
+  font-family: "Orbitron", sans-serif;
+  color: #e7e5ff;
   text-decoration: none;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #b19fff;
-  text-decoration: underline;
-}
-
-/* shared button style */
-.nav-btn {
-  position: relative;
-  background: rgba(128, 0, 128, 0.25);
-  border: 1px solid #b19fff;
-  color: white;
-  backdrop-filter: blur(8px);
-  padding: 0.5rem 1rem;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.95rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.nav-btn:hover {
-  background: rgba(128, 0, 128, 0.4);
-  transform: translateY(-2px);
-}
-
-/* contact vs services tweaks (if you want different widths) */
-.contact-btn {
-  min-width: 8rem;
-}
-.services-btn {
-  min-width: 6rem;
-}
-
-/* dropdown wrapper so we can position the content */
-.dropdown-wrapper {
+  font-size: 1.05rem;
+  white-space: nowrap;
   position: relative;
 }
 
-/* dropdown panel */
-.dropdown-content {
+.nav-group a:hover::after {
+  content: "";
   position: absolute;
-  top: 110%;
-  left: 0;
-  background: rgba(128, 0, 128, 0.2);
-  border: 1px solid #b19fff;
-  backdrop-filter: blur(8px);
-  border-radius: 0.5rem;
-  padding: 0.5rem 0;
-  min-width: 10rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-  z-index: 200;
+  left: 0; right: 0; bottom: -6px;
+  height: 2px;
+  background: #b28aff;
+  box-shadow: 0 0 6px #b28aff;
 }
 
-/* dropdown links/buttons */
-.dropdown-item {
-  display: block;
-  color: white;
+.contact-wrap { margin-left: auto; }
+
+.contact-btn {
+  display: inline-block;
+  font-family: "Orbitron", sans-serif;
+  color: #fff;
+  background: radial-gradient(120% 120% at 50% 0%, #2b0d4a 0%, #1a0f2a 60%) #1a0f2a;
+  border: 1px solid rgba(178,138,255,0.35);
+  box-shadow: 0 0 10px rgba(178,138,255,0.25) inset, 0 0 8px rgba(178,138,255,0.15);
+  padding: 10px 14px;
+  border-radius: 12px;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  font-family: 'Orbitron', sans-serif;
-  transition: background 0.2s;
+  white-space: nowrap;
 }
 
-.dropdown-item:hover {
-  background: rgba(128, 0, 128, 0.4);
+/* --- Mobile: fit everything without overflow --- */
+@media (max-width: 640px) {
+  .navbar {
+    flex-wrap: wrap;          /* allow 2 rows */
+    row-gap: 8px;
+    padding: 8px 12px;
+  }
+
+  .brand {
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    order: 1;
+  }
+
+  .contact-wrap {
+    order: 2;                 /* keep Contact next to logo on first row */
+  }
+
+  .contact-btn {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-radius: 10px;
+  }
+
+  .nav-group {
+    order: 3;                 /* links go on the second row */
+    width: 100%;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .nav-group a {
+    font-size: 0.95rem;
+  }
 }
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .brand { font-size: 1.1rem; letter-spacing: 0.08em; }
+  .nav-group { gap: 12px; }
+  .nav-group a { font-size: 0.9rem; }
+  .contact-btn { font-size: 0.85rem; padding: 5px 9px; }
+}
+
+/* Prevent accidental horizontal scrolling on tiny devices */
+html, body { overflow-x: hidden; }
