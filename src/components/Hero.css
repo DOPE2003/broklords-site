@@ -32,6 +32,7 @@
 .hero-content p {
   margin-bottom: 1.5rem;
   opacity: 0.8;
+feat/mobile-hero
 }
 .hero-content .hero-btn {
   padding: 0.75rem 1.5rem;
@@ -68,4 +69,17 @@
     opacity: 0 !important;
     display: none !important;
   }
+
+ main
+}
+.hero-content .hero-btn {
+  padding: 0.75rem 1.5rem;
+  background: rgba(110,10,214,0.8);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
 }
