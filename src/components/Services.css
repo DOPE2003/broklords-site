@@ -25,7 +25,7 @@
 
 /* Card (button) */
 .service-card {
-  background: #1e1e2f;
+  background: transparent;
   color: #e6e0ff;
   border-radius: 16px;
   padding: 1.6rem 1.4rem;
@@ -75,7 +75,7 @@
 .svc-modal__card {
   position: relative;
   width: min(960px, 92vw);
-  background: #151524;
+  background: transparent;
   border: 1px solid rgba(178,138,255,.28);
   border-radius: 18px;
   padding: 1.6rem;
